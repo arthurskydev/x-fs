@@ -1,0 +1,7 @@
+[submodule "Sim/vendor/imgui"]
+	path = Sim/vendor/imgui
+	url = ../../arthurskydev/imgui.git
+[submodule "Sim/vendor/spdlog"]
+	path = Sim/vendor/spdlog
+	url = ../../gabime/spdlog.git
+	branch = v1.x
