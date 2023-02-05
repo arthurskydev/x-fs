@@ -2,10 +2,8 @@
 // Created by Arthur on 05.02.2023.
 //
 
-#include <iostream>
-#include "config.h"
-#include "imgui.h"
+#include "Sim.h"
 
 int main() {
-    std::cout << PROJECT_NAME << " Version " << PROJECT_VER << std::endl;
+    X_FS::Sim sim;
 }
