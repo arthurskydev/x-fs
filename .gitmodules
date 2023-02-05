@@ -3,5 +3,5 @@
 	url = ../../arthurskydev/imgui.git
 [submodule "Sim/vendor/spdlog"]
 	path = Sim/vendor/spdlog
-	url = ../../gabime/spdlog.git
+	url = https://github.com/gabime/spdlog.git
 	branch = v1.x
