@@ -1,3 +1,4 @@
+
 //     X::FS - A flight dynamics simulation engine
 //     Copyright (C) 2023  Arthur Meeh
 //
@@ -14,10 +15,13 @@
 //     You should have received a copy of the GNU General Public License
 //     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#pragma once
+// Created by Arthur Meeh on 09.02.23.
 
-#define PROJECT_NAME "@PROJECT_NAME@"
-#define PROJECT_VER  "@PROJECT_VERSION@"
-#define PROJECT_VER_MAJOR "@PROJECT_VERSION_MAJOR@"
-#define PROJECT_VER_MINOR "@PROJECT_VERSION_MINOR@"
-#define PROJECT_VER_PATCH "@PROJECT_VERSION_PATCH@"
+#include "Engine.h"
+
+namespace X
+{
+	namespace FS
+	{
+	} // X
+} // FS
