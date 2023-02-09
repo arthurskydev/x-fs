@@ -1,2 +1,2 @@
 # ***X::FS***
-## Study level flight simulator written in C++
+## Flight dynamics simulator written in C++
