@@ -19,11 +19,8 @@
 
 #pragma once
 
-#include "nlohmann/json.hpp"
-
 namespace X::FS
 {
-
 	struct Vec3
 	{
 		Vec3(double x, double y, double z) : X(x), Y(y), Z(z)

@@ -20,11 +20,10 @@
 #pragma once
 
 #include <vector>
-#include "../Aircraft/Aircraft.h"
+#include "Aircraft/Aircraft.h"
 
 namespace X::FS
 {
-
 	class Engine
 	{
 	 public:

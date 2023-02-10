@@ -17,16 +17,15 @@
 
 // Created by Arthur Meeh on 10.02.23.
 
-#include "X-FS.h"
-#include "yaml-cpp/yaml.h"
-#include <fstream>
+#pragma once
 
-int main()
+#include "Math/Transform.h"
+
+namespace X::FS
 {
-	X::FS::Engine engine;
+	struct Gear
+	{
+		Transform Transform;
+	};
+};
 
-	std::ifstream f("sample_plane.yaml");
-	auto data = YAML::Load(f);
-	auto aircraft = X::FS::Aircraft::LoadFromConfig(data);
-	engine.AddAircraft(aircraft);
-}

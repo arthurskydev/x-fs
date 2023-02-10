@@ -17,16 +17,26 @@
 
 // Created by Arthur Meeh on 10.02.23.
 
-#include "X-FS.h"
-#include "yaml-cpp/yaml.h"
-#include <fstream>
+#pragma once
 
-int main()
-{
-	X::FS::Engine engine;
+#include <string>
 
-	std::ifstream f("sample_plane.yaml");
-	auto data = YAML::Load(f);
-	auto aircraft = X::FS::Aircraft::LoadFromConfig(data);
-	engine.AddAircraft(aircraft);
+namespace X::FS {
+	struct AircraftDesignation {
+		std::string Manufacturer;
+		std::string Model;
+		std::string TypeDesignator;
+	};
+
+	struct AircraftVersion {
+		unsigned int VersionMajor;
+		unsigned int VersionMinor;
+		unsigned int VersionPatch;
+	};
+
+	struct AircraftSpec {
+		AircraftDesignation Designation;
+		AircraftVersion Version;
+		std::string Notes;
+	};
 }

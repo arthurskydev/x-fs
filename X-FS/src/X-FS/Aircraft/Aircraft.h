@@ -21,60 +21,23 @@
 
 #include <vector>
 #include <filesystem>
-#include "Vec3.h"
-#include "nlohmann/json.hpp"
-
-using namespace nlohmann;
+#include "yaml-cpp/yaml.h"
+#include "Body.h"
+#include "Wing.h"
+#include "Spec.h"
+#include "Gear.h"
+#include "Module.h"
 
 namespace X::FS
 {
-	struct Transform
-	{
-		Math::Vec3 Position, Orientation;
-	};
-
-	struct Body {
-		Transform Transform;
-	};
-
-	struct Wing {
-		Transform Transform;
-	};
-
-	struct Module {
-		std::string Name;
-	};
-
-	struct Gear {
-		Transform Transform;
-	};
-
-	struct AircraftDesignation {
-		std::string Manufacturer;
-		std::string Model;
-		std::string TypeDesignator;
-	};
-
-	struct AircraftVersion {
-		unsigned int VersionMajor;
-		unsigned int VersionMinor;
-		unsigned int VersionPatch;
-	};
-
-	struct AircraftSpec {
-		AircraftDesignation Designation;
-		AircraftVersion Version;
-		std::string Notes;
-	};
 
 	class Aircraft
 	{
 	 public:
-		static std::shared_ptr<Aircraft> LoadFromJSON(json& data);
+		static std::shared_ptr<Aircraft> LoadFromConfig(YAML::Node config);
 
 	 public:
 		AircraftSpec p_Spec;
-		Transform p_Transform;
 
 	 private:
 		std::vector<Wing> m_Wings;
@@ -82,8 +45,9 @@ namespace X::FS
 		std::vector<Gear> m_Gear;
 		std::vector<Module> m_Modules;
 
-		Math::Vec3 m_Velocity;
-		Math::Vec3 m_AngularVelocity;
+		Transform m_Transform;
+		Vec3 m_Velocity;
+		Vec3 m_AngularVelocity;
 	};
 };
 

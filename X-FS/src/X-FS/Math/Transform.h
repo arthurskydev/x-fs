@@ -17,16 +17,13 @@
 
 // Created by Arthur Meeh on 10.02.23.
 
-#include "X-FS.h"
-#include "yaml-cpp/yaml.h"
-#include <fstream>
+#pragma once
 
-int main()
-{
-	X::FS::Engine engine;
+#include "Vec3.h"
 
-	std::ifstream f("sample_plane.yaml");
-	auto data = YAML::Load(f);
-	auto aircraft = X::FS::Aircraft::LoadFromConfig(data);
-	engine.AddAircraft(aircraft);
+namespace X::FS {
+	struct Transform
+	{
+		Vec3 Position, Orientation;
+	};
 }

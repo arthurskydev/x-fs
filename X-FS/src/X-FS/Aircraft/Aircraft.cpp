@@ -19,12 +19,11 @@
 
 #include "Aircraft.h"
 
-using namespace nlohmann;
 
 namespace X::FS {
 
-	std::shared_ptr<Aircraft> Aircraft::LoadFromJSON(json& data)
+	std::shared_ptr<Aircraft> Aircraft::LoadFromConfig(YAML::Node config)
 	{
-		return std::shared_ptr<Aircraft>();
+		return std::make_shared<Aircraft>(Aircraft());
 	}
 }
