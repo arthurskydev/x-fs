@@ -21,7 +21,7 @@
 
 #include "nlohmann/json.hpp"
 
-namespace X::Math
+namespace X::FS
 {
 
 	struct Vec3
@@ -68,7 +68,6 @@ namespace X::Math
 			return Subtract(other);
 		}
 
-		NLOHMANN_DEFINE_TYPE_INTRUSIVE(Vec3, X, Y, Z)
 	};
 
 }

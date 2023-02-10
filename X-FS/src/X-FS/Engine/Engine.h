@@ -15,14 +15,25 @@
 //     You should have received a copy of the GNU General Public License
 //     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// Created by Arthur Meeh on 10.02.23.
+// Created by Arthur Meeh on 09.02.23.
 
-#include "X-FS/X-FS.h"
+#pragma once
 
-int main() {
-	X::FS::Engine engine;
+#include <vector>
+#include "../Aircraft/Aircraft.h"
 
-	std::ifstream f("sample_plane,")
+namespace X::FS
+{
 
-	engine.AddAircraft(X::FS::Aircraft::LoadFromJSON());
-}
+	class Engine
+	{
+	 public:
+		~Engine();
+
+		std::shared_ptr<Aircraft> AddAircraft(std::shared_ptr<Aircraft>& aircraft);
+		void Update();
+	 private:
+		std::vector<std::shared_ptr<Aircraft>> m_Aircraft;
+	};
+
+} // X::FS
