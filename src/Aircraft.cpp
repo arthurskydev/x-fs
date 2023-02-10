@@ -17,23 +17,8 @@
 
 // Created by Arthur Meeh on 09.02.23.
 
-#pragma once
-
-#include <vector>
 #include "Aircraft.h"
 
-namespace X::FS
-{
+namespace X::FS {
 
-	class Engine
-	{
-	 public:
-		~Engine();
-
-		Aircraft* Load(Aircraft* aircraft);
-		void Update();
-	 private:
-		std::vector<Aircraft*> m_Aircraft;
-	};
-
-} // X::FS
+}

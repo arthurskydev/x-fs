@@ -19,21 +19,30 @@
 
 #pragma once
 
-#include <vector>
-#include "Aircraft.h"
+#include "Math/Vec3.h"
 
 namespace X::FS
 {
-
-	class Engine
+	struct Transform
 	{
-	 public:
-		~Engine();
-
-		Aircraft* Load(Aircraft* aircraft);
-		void Update();
-	 private:
-		std::vector<Aircraft*> m_Aircraft;
+		Math::Vec3 Position, Velocity, Orientation, AngularVelocity;
 	};
 
-} // X::FS
+	struct Body {
+
+	};
+
+	struct Wing {
+
+	};
+
+	class Aircraft
+	{
+	 public:
+		Transform Transform;
+	 private:
+		std
+	};
+
+};
+

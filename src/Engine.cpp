@@ -19,9 +19,22 @@
 
 #include "Engine.h"
 
-namespace X
+namespace X::FS
 {
-	namespace FS
+	Engine::~Engine()
 	{
-	} // X
-} // FS
+		std::for_each(m_Aircraft.begin(), m_Aircraft.end(), [](Aircraft* aircraft) -> void
+		{ delete aircraft; });
+	}
+
+	void Engine::Update()
+	{
+
+	}
+
+	Aircraft* Engine::Load(Aircraft* aircraft)
+	{
+		m_Aircraft.push_back(aircraft);
+		return aircraft;
+	}
+} // X::FS
