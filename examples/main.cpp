@@ -17,55 +17,13 @@
 
 // Created by Arthur Meeh on 10.02.23.
 
-#pragma once
+#include "X-FS/Core.h"
 
-namespace X::Math
-{
+using namespace X::FS;
 
-	class Vec3
-	{
-	 public:
-		Vec3(double x, double y, double z) : X(x), Y(y), Z(z)
-		{
-
-		}
-
-		Vec3() : X(0), Y(0), Z(0)
-		{
-
-		}
-
-		double X, Y, Z;
-
-		[[nodiscard]] Vec3 Add(const Vec3& other) const
-		{
-			return { X + other.X, Y + other.Y, Z + other.Z };
-		}
-
-		[[nodiscard]] Vec3 Subtract(const Vec3& other) const
-		{
-			return { X - other.X, Y - other.Y, Z - other.Z };
-		}
-
-		[[nodiscard]] Vec3 Negate() const
-		{
-			return { -X, -Y, -Z };
-		}
-
-		Vec3 operator+(const Vec3& other) const
-		{
-			return Add(other);
-		}
-
-		Vec3 operator-() const
-		{
-			return Negate();
-		}
-
-		Vec3 operator-(const Vec3& other) const
-		{
-			return Subtract(other);
-		}
-	};
-
+int main() {
+	Engine engine;
+	auto acFile = std::filesystem::path("./sample_plane.json");
+	auto craft = Aircraft::LoadFromFile(acFile);
+	engine.AddAircraft(craft);
 }

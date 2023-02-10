@@ -17,8 +17,23 @@
 
 // Created by Arthur Meeh on 09.02.23.
 
-#include "Aircraft.h"
+#pragma once
 
-namespace X::FS {
+#include <vector>
+#include "Aircraft/Aircraft.h"
 
-}
+namespace X::FS
+{
+
+	class Engine
+	{
+	 public:
+		~Engine();
+
+		std::shared_ptr<Aircraft> AddAircraft(std::shared_ptr<Aircraft>& aircraft);
+		void Update();
+	 private:
+		std::vector<std::shared_ptr<Aircraft>> m_Aircraft;
+	};
+
+} // X::FS

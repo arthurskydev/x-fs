@@ -23,8 +23,7 @@ namespace X::FS
 {
 	Engine::~Engine()
 	{
-		std::for_each(m_Aircraft.begin(), m_Aircraft.end(), [](Aircraft* aircraft) -> void
-		{ delete aircraft; });
+		m_Aircraft.clear();
 	}
 
 	void Engine::Update()
@@ -32,9 +31,9 @@ namespace X::FS
 
 	}
 
-	Aircraft* Engine::Load(Aircraft* aircraft)
+	std::shared_ptr<Aircraft> Engine::AddAircraft(std::shared_ptr<Aircraft>& aircraft)
 	{
-		m_Aircraft.push_back(aircraft);
+		m_Aircraft.emplace_back(std::move(aircraft));
 		return aircraft;
 	}
 } // X::FS

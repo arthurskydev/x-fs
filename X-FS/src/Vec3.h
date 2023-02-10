@@ -15,34 +15,60 @@
 //     You should have received a copy of the GNU General Public License
 //     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// Created by Arthur Meeh on 09.02.23.
+// Created by Arthur Meeh on 10.02.23.
 
 #pragma once
 
-#include "Math/Vec3.h"
+#include "nlohmann/json.hpp"
 
-namespace X::FS
+namespace X::Math
 {
-	struct Transform
+
+	struct Vec3
 	{
-		Math::Vec3 Position, Velocity, Orientation, AngularVelocity;
+		Vec3(double x, double y, double z) : X(x), Y(y), Z(z)
+		{
+
+		}
+
+		Vec3() : X(0), Y(0), Z(0)
+		{
+
+		}
+
+		double X, Y, Z;
+
+		[[nodiscard]] Vec3 Add(const Vec3& other) const
+		{
+			return { X + other.X, Y + other.Y, Z + other.Z };
+		}
+
+		[[nodiscard]] Vec3 Subtract(const Vec3& other) const
+		{
+			return { X - other.X, Y - other.Y, Z - other.Z };
+		}
+
+		[[nodiscard]] Vec3 Negate() const
+		{
+			return { -X, -Y, -Z };
+		}
+
+		Vec3 operator+(const Vec3& other) const
+		{
+			return Add(other);
+		}
+
+		Vec3 operator-() const
+		{
+			return Negate();
+		}
+
+		Vec3 operator-(const Vec3& other) const
+		{
+			return Subtract(other);
+		}
+
+		NLOHMANN_DEFINE_TYPE_INTRUSIVE(Vec3, X, Y, Z)
 	};
 
-	struct Body {
-
-	};
-
-	struct Wing {
-
-	};
-
-	class Aircraft
-	{
-	 public:
-		Transform Transform;
-	 private:
-		std
-	};
-
-};
-
+}

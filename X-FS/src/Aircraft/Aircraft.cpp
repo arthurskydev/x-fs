@@ -17,23 +17,14 @@
 
 // Created by Arthur Meeh on 09.02.23.
 
-#pragma once
-
-#include <vector>
 #include "Aircraft.h"
 
-namespace X::FS
-{
+using namespace nlohmann;
 
-	class Engine
+namespace X::FS {
+
+	std::shared_ptr<Aircraft> Aircraft::LoadFromJSON(json& data)
 	{
-	 public:
-		~Engine();
-
-		Aircraft* Load(Aircraft* aircraft);
-		void Update();
-	 private:
-		std::vector<Aircraft*> m_Aircraft;
-	};
-
-} // X::FS
+		return std::shared_ptr<Aircraft>();
+	}
+}
