@@ -1,3 +1,0 @@
-[submodule "X-FS/vendor/json"]
-	path = X-FS/vendor/json
-	url = https://github.com/nlohmann/json.git
