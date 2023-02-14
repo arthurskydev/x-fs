@@ -18,12 +18,19 @@
 // Created by Arthur Meeh on 09.02.23.
 
 #include "Aircraft.h"
-
+#include "Spec.h"
 
 namespace X::FS {
+	Aircraft::Aircraft(AircraftSpec spec)
+	{
+
+	}
 
 	std::shared_ptr<Aircraft> Aircraft::LoadFromConfig(YAML::Node config)
 	{
-		return std::make_shared<Aircraft>(Aircraft());
+		AircraftSpec spec{};
+		config >> spec;
+
+		return std::make_shared<Aircraft>(Aircraft(spec));
 	}
 }

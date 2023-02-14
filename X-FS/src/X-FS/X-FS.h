@@ -20,5 +20,4 @@
 #pragma once
 
 #include "Engine/Engine.h"
-#include "Aircraft/Aircraft.h"
 

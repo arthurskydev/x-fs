@@ -1,0 +1,23 @@
+Version: "1.0.0"
+
+Manufacturer: "Cessna"
+Model: "172S Skyhawk SP"
+TypeDesignation: "C172"
+
+Tree:
+  - Bodies/Fuselage:
+      Tree:
+        - Wings/Lift:
+            Tree:
+              - Surfaces/Aileron
+              - Surfaces/Flaps
+        - Wings/HorizontalStab:
+            Tree:
+              - Surfaces/HorizontalStab
+        - Wings/VerticalStab:
+            Tree:
+              - Surfaces/VerticalStab
+        - Engine
+        - PilotSeat:
+            Tree:
+              Co

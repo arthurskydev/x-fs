@@ -34,6 +34,7 @@ namespace X::FS
 	class Aircraft
 	{
 	 public:
+		explicit Aircraft(AircraftSpec spec);
 		static std::shared_ptr<Aircraft> LoadFromConfig(YAML::Node config);
 
 	 public:

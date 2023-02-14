@@ -20,13 +20,25 @@
 #include "X-FS.h"
 #include "yaml-cpp/yaml.h"
 #include <fstream>
+#include <filesystem>
+#include <iostream>
 
-int main()
+int main(int argc, const char** argv)
 {
-	X::FS::Engine engine;
+	if (argc < 2) {
+		std::cout << "Please provide the directory to the Spec.yaml file as an argument to this application" << std::endl;
+	}
 
-	std::ifstream f("sample_plane.yaml");
-	auto data = YAML::Load(f);
+	X::FS::Engine engine;
+	auto path = std::filesystem::path(std::string(argv[1]) + "Spec.yaml");
+	std::cout << path << std::endl;
+
+	if (!std::filesystem::exists(path)) {
+		throw std::runtime_error("file not found");
+	}
+
+	auto fs = std::ifstream(path);
+	auto data = YAML::Load(fs);
 	auto aircraft = X::FS::Aircraft::LoadFromConfig(data);
 	engine.AddAircraft(aircraft);
 }
